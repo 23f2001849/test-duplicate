@@ -1,16 +1,11 @@
-# Duplicate Detection Test Web App
-
 ## Overview
-This web app allows users to input a list of comma-separated values and then checks for any duplicate values. If any duplicates are found, they are displayed in red text. If no duplicates are found, a confirmation message is displayed in green text.
+This is a simple web application that checks for duplicates in a list of comma separated values provided by the user. The user enters the values in a form, and the application displays whether there are any duplicates and what they are.
 
-## Setup
-To set up the web app, simply open the `index.html` file in a web browser.
+## Setup 
+This application is standalone and does not require any special setup. It can be run in any modern web browser.
 
 ## Usage
-To use the app, follow these steps:
-
-1. Type a list of comma-separated values into the input field. For example: `apple, banana, apple, cherry, banana`.
-
-2. Click on the `Check for duplicates` button.
-
-3. The app will then check for any duplicate values. If any are found, they are displayed below the button in red text. If no duplicates are found, a message confirming this is displayed in green text.
+1. Open the index.html file in a web browser.
+2. Enter a list of comma separated values in the form field.
+3. Click the "Submit" button.
+4. The application will display whether there are any duplicates in the list and what they are.
