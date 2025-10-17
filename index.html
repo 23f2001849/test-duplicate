@@ -2,41 +2,41 @@ html
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Duplicate Detection Test</title>
+    <title>Duplicate Detection</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
+        body {
+            font-family: Arial, sans-serif;
         }
-        .result { 
-            font-weight: bold;
-            color: green; 
-        }
-        .error { 
-            font-weight: bold;
-            color: red; 
+        .error {
+            color: red;
         }
     </style>
 </head>
 <body>
-    <h1>Duplicate Detection Test</h1>
-    <p>Type a list of comma-separated values:</p>
-    <input type="text" id="input" />
-    <button onclick="checkDuplicates()">Check for duplicates</button>
+<h1>Duplicate Detection</h1>
+    <form id="myForm">
+        <label for="input">Enter comma separated values:</label><br>
+        <input type="text" id="input" name="input"><br>
+        <input type="submit" value="Submit">
+    </form>
     <p id="result"></p>
     <script>
-        function checkDuplicates() {
-            const inputValue = document.getElementById('input').value;
-            const values = inputValue.split(',').map(item => item.trim());
-            const duplicates = values.filter((item, index) => values.indexOf(item) != index);
-            const resultElement = document.getElementById('result');
+        document.getElementById("myForm").addEventListener("submit", function(event){
+            event.preventDefault();
+            var input = document.getElementById("input").value;
+            var values = input.split(",").map(function(item) {
+                return item.trim();
+            });
+            var duplicates = values.filter(function(item, index){
+                return values.indexOf(item) != index;
+            });
+            var result = document.getElementById("result");
             if (duplicates.length > 0) {
-                resultElement.textContent = 'Duplicates found: ' + duplicates.join(', ');
-                resultElement.className = 'error';
+                result.innerHTML = "<span class='error'>Duplicates found: " + duplicates.join(", ") + "</span>";
             } else {
-                resultElement.textContent = 'No duplicates found.';
-                resultElement.className = 'result';
+                result.innerHTML = "No duplicates found";
             }
-        }
+        });
     </script>
 </body>
 </html>
