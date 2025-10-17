@@ -1,0 +1,42 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Duplicate Detection Test</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+        }
+        .result { 
+            font-weight: bold;
+            color: green; 
+        }
+        .error { 
+            font-weight: bold;
+            color: red; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Duplicate Detection Test</h1>
+    <p>Type a list of comma-separated values:</p>
+    <input type="text" id="input" />
+    <button onclick="checkDuplicates()">Check for duplicates</button>
+    <p id="result"></p>
+    <script>
+        function checkDuplicates() {
+            const inputValue = document.getElementById('input').value;
+            const values = inputValue.split(',').map(item => item.trim());
+            const duplicates = values.filter((item, index) => values.indexOf(item) != index);
+            const resultElement = document.getElementById('result');
+            if (duplicates.length > 0) {
+                resultElement.textContent = 'Duplicates found: ' + duplicates.join(', ');
+                resultElement.className = 'error';
+            } else {
+                resultElement.textContent = 'No duplicates found.';
+                resultElement.className = 'result';
+            }
+        }
+    </script>
+</body>
+</html>
